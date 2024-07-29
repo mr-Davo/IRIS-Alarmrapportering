@@ -116,7 +116,7 @@ Via de batch bestanden en de task scheduler kan de script automatisch lopen. Ver
 
 ## Code 
     
-**1. source_paths.json**
+**1. source_paths.json**:
 Dit bestand moet aangemaakt worden in de data folder. 
 ```bash
     {
@@ -128,7 +128,7 @@ Dit bestand moet aangemaakt worden in de data folder.
     "week_month_log_folder_test":  
     }
 ```
-**2. run_script.bat**
+**2. run_script.bat**:
 Dit bestand moet aangemaakt worden in de automation folder.
 ```bash
     REM    Windows batch script to run 1+ Python program/scripts, sequentially, within their virtual environment. This can be called from Windows Task Scheduler.
