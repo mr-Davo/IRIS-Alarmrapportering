@@ -60,11 +60,10 @@ Onderstaand een voorbeeld van de mappenstructuur wanneer het project actief is.
     ├── requirements.txt
     │
     ├── archive/
-    │   └── upload_file_mp.py  # 
+    │   └── upload_file_mp.py  # possible other option for uploading files with multiprocessing (still some issues)
     │
     ├── automation/
     │   ├── run_script.bat    # batch file for running the main script automaticaly with task scheduler
-    │   ├── run_script_test.bat    # batch file for running the main_test script automaticaly with task scheduler
     │
     ├── data/
     │   ├── Log.txt    # keeps track of the uploaded files with timestamps
@@ -90,7 +89,6 @@ Onderstaand een voorbeeld van de mappenstructuur wanneer het project actief is.
     │       ├── UploadFile_test.py
     │       ├── main_single.py
     │       ├── main_test.py
-    │       └── test.py
 
 ## Gebruik
 
