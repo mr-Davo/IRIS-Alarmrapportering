@@ -1,0 +1,39 @@
+# Ignore everything in the data directory
+data/*
+# Ignore everything in the automation directory
+automation/*
+
+# Ignore all .pyc files and __pycache__ directories
+*.pyc
+__pycache__/
+
+
+# Ignore compiled files
+*.pyc
+*.pyo
+*.pyd
+
+
+# Ignore virtual environment directories
+venv/
+env/
+.venv/
+
+# Ignore temporary files
+*.tmp
+*.temp
+
+# Ignore Python egg files
+*.egg
+*.egg-info
+dist/
+build/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+
+# Ignore all hidden files and directories
+.*
+!.gitignore
+
