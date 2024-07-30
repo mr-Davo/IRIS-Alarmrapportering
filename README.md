@@ -60,11 +60,10 @@ Onderstaand een voorbeeld van de mappenstructuur wanneer het project actief is.
     ├── requirements.txt
     │
     ├── archive/
-    │   └── upload_file_mp.py  # 
+    │   └── upload_file_mp.py  # possible other option for uploading files with multiprocessing (still some issues)
     │
     ├── automation/
     │   ├── run_script.bat    # batch file for running the main script automaticaly with task scheduler
-    │   ├── run_script_test.bat    # batch file for running the main_test script automaticaly with task scheduler
     │
     ├── data/
     │   ├── Log.txt    # keeps track of the uploaded files with timestamps
@@ -90,7 +89,6 @@ Onderstaand een voorbeeld van de mappenstructuur wanneer het project actief is.
     │       ├── UploadFile_test.py
     │       ├── main_single.py
     │       ├── main_test.py
-    │       └── test.py
 
 ## Gebruik
 
@@ -115,8 +113,9 @@ Verdere uitleg is te vinden op:
 Via de batch bestanden en de task scheduler kan de script automatisch lopen. Vergeet wel niet het juiste pad naar het batch bestand in te geven voor de actie. In het batch bestand zelf moet dan ook de venv_root_dir% aangevuld worden met de pad waar de project-map IRIS-alarmrapportering is weggeschreven na de klonen van de git repository. 
 
 ## Code 
-    
-**1. source_paths.json**
+Hieronder is de nodige code te vinden om het script volledig te laten werken. De mappen moeten aangemaakt worden volgens de opbouw voorgeschreven in de [Mappenstructuur](#Mappenstructuur).
+
+**1. source_paths.json**:
 Dit bestand moet aangemaakt worden in de data folder. 
 ```bash
     {
@@ -128,7 +127,7 @@ Dit bestand moet aangemaakt worden in de data folder.
     "week_month_log_folder_test":  
     }
 ```
-**2. run_script.bat**
+**2. run_script.bat**:
 Dit bestand moet aangemaakt worden in de automation folder.
 ```bash
     REM    Windows batch script to run 1+ Python program/scripts, sequentially, within their virtual environment. This can be called from Windows Task Scheduler.
