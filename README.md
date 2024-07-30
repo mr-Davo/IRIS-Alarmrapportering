@@ -113,7 +113,7 @@ Verdere uitleg is te vinden op:
 Via de batch bestanden en de task scheduler kan de script automatisch lopen. Vergeet wel niet het juiste pad naar het batch bestand in te geven voor de actie. In het batch bestand zelf moet dan ook de venv_root_dir% aangevuld worden met de pad waar de project-map IRIS-alarmrapportering is weggeschreven na de klonen van de git repository. 
 
 ## Code 
-Hieronder is de nodige code te vinden om het script volledig te laten werken. De mappen moeten aangemaakt worden volgens de [Mappenstructuur](#Mappenstructuur).
+Hieronder is de nodige code te vinden om het script volledig te laten werken. De mappen moeten aangemaakt worden volgens de opbouw voorgeschreven in de [Mappenstructuur](#Mappenstructuur).
 
 **1. source_paths.json**:
 Dit bestand moet aangemaakt worden in de data folder. 
