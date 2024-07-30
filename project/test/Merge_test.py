@@ -38,8 +38,8 @@ def Load(filename):
     return variables
 
 def CreateHistory(csv_file, save_path):
-    #week_name = GenerateFileName(week=True)
-    week_name = 'w32_Alarmrapport.csv'
+    week_name = GenerateFileName(week=True)
+    #week_name = 'w32_Alarmrapport.csv'
     logW = os.path.join(save_path, week_name)
 
     if not os.path.exists(logW):

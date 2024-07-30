@@ -36,7 +36,7 @@ def Terugkoppeling(IRIS_log,key,**kwargs):
         if is_last_day_of_month():
             FolderName = "Archief"
             DriveID = '1vLWNP0U3JOKQrs6c48S-glaEoT5DWQji'
-            UploadFile(file,FolderName,DriveID, FileName = name)
+            UploadFile(file,FolderName,DriveID,'last_day', FileName = name)
     os.remove(file)
 
     if 'Firsttime' in kwargs:

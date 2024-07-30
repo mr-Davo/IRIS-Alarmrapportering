@@ -4,6 +4,7 @@ import mimetypes
 import json
 
 from datetime import datetime
+from dateutil.relativedelta import relativedelta
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -133,6 +134,14 @@ def UploadFile(File,FolderName,DriveID,key,**kwargs):
     if key in file_path_data.keys():
         file = file_path_data[key].split(".")[0] + ".xlsx"
         DeleteFile(file, FolderID, service)
+
+    if key == 'last_day':
+        current_date = datetime.now()
+        six_months_prior = current_date - relativedelta(months=6)
+        file_date = six_months_prior.strftime("%Y-%m")
+        file = file_date + "_Alarmrapport.xlsx"
+        DeleteFile(file, FolderID, service)
+        
 
     if 'FileName' in kwargs:
         name = kwargs['FileName']

@@ -36,7 +36,7 @@ def Terugkoppeling(IRIS_log,key,**kwargs):
         if is_last_day_of_month():
             FolderName = "Archief"
             DriveID = '18wbKUIajcX4qauT463T116S6s7Linaav'
-            UploadFile(file,FolderName,DriveID, FileName = name)
+            UploadFile(file,FolderName,DriveID,'last_day', FileName = name)
     os.remove(file)
 
     if 'Firsttime' in kwargs:
@@ -49,7 +49,7 @@ def CreateLog(st,feedback):
     duration_seconds = (et - st)
     minutes = int(duration_seconds // 60)
     seconds = int(duration_seconds % 60)
-    (f"{minutes} minutes and {seconds} seconds")
+    print(f"{minutes} minutes and {seconds} seconds")
     
     #Set working directory to data folder
     os.chdir(os.path.join(os.getcwd(),"data"))
