@@ -38,6 +38,7 @@ def Terugkoppeling(IRIS_log,key,**kwargs):
             DriveID = '1vLWNP0U3JOKQrs6c48S-glaEoT5DWQji'
             UploadFile(file,FolderName,DriveID,'last_day', FileName = name)
     os.remove(file)
+    os.remove(IRIS_log)
 
     if 'Firsttime' in kwargs:
         return feedback, Logs
@@ -79,6 +80,7 @@ def OpenAlarms(Log,key):
     feedback = UploadFile(file, FolderName, DriveID,key , FileName = open_alarms_file_name['open_alarms'])
     os.remove(file)
     os.remove(csv_file)
+    os.remove(Log)
 
     return feedback
 
