@@ -6,7 +6,9 @@ from openpyxl.styles import PatternFill
 def CreateExcelFile(csv_file):
     ExcelFileName= "OpenAlarms.xlsx"
     df1 = pd.read_csv(csv_file,sep=";")
-    file_name = csv_file.split(".")[0]
+    df1['Aanvangstijd'] = pd.to_datetime(df1['Aanvangstijd'], format='%d/%m/%Y %H:%M:%S')
+    df1['Tijd bevestigd'] = pd.to_datetime(df1['Tijd bevestigd'], format='%d/%m/%Y %H:%M:%S')
+    file_name = csv_file.split(".")[0]    
     with pd.ExcelWriter(ExcelFileName, engine='xlsxwriter') as writer:
         df1.to_excel(writer, sheet_name=file_name, index=False)
     Format(ExcelFileName)

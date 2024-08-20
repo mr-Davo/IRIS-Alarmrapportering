@@ -95,7 +95,6 @@ def is_last_day_of_month():
     return now.day == days_in_month
 
 def SetDates():
-    print(os.getcwd())
     json_path = "dates_test.json"
     dates = Load(json_path)
 
@@ -181,8 +180,6 @@ def main():
 
     SetDates()
 
-    os.remove(Logbook)
-    os.remove(ActueelAlarms)
     
 if __name__ == '__main__':
     print("Starting")

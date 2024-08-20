@@ -266,7 +266,7 @@ def ReformatDate(date_strings):
                     date_object = datetime.strptime(date_string_processed, '%m/%d/%Y %H:%M:%S %p %z')
                     
                     # Formatting the datetime object to the desired format without timezone info
-                    reformatted_date_string = date_object.strftime(' %Y/%m/%d %H:%M:%S')
+                    reformatted_date_string = date_object.strftime(' %d/%m/%Y %H:%M:%S')
 
                 else:
                     reformatted_date_string = date_string
