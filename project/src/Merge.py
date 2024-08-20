@@ -1,4 +1,5 @@
 import os.path
+import sys
 import pandas as pd
 from datetime import datetime
 import json
@@ -59,24 +60,12 @@ def CreateHistory(csv_file, save_path):
     file_name_json='dates.json'
     
     MergeCSV(logM, csv_file,month_name)
-
     new_files = {
     "week": week_name,
     "month": month_name,
     }
 
-    old_files = Load(file_name_json)
-    os.chdir(os.path.join(os.getcwd(),"data"))
-    if os.path.exists(file_name_json):
-        for key in ["week", "month"]:
-            if key in old_files:
-                if old_files[key] != new_files[key]:
-                    os.remove(os.path.join(save_path,old_files[key]))
-    os.chdir(os.path.dirname(os.getcwd()))
-
     Save(new_files,file_name_json)
-    
-
     
     Logs = [logW,logM]
     return Logs

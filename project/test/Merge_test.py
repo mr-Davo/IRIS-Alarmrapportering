@@ -1,4 +1,5 @@
 import os.path
+import sys
 import pandas as pd
 from datetime import datetime
 import json
@@ -39,7 +40,7 @@ def Load(filename):
 
 def CreateHistory(csv_file, save_path):
     week_name = GenerateFileName(week=True)
-    #week_name = 'w32_Alarmrapport.csv'
+    #week_name = 'w35_Alarmrapport.csv'
     logW = os.path.join(save_path, week_name)
 
     if not os.path.exists(logW):
@@ -76,7 +77,7 @@ def CreateHistory(csv_file, save_path):
 
     Save(new_files,file_name_json)
     
-
+    sys.exit()
     
     Logs = [logW,logM]
     return Logs

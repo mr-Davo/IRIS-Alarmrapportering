@@ -38,7 +38,6 @@ def Terugkoppeling(IRIS_log,key,**kwargs):
             DriveID = '1vLWNP0U3JOKQrs6c48S-glaEoT5DWQji'
             UploadFile(file,FolderName,DriveID,'last_day', FileName = name)
     os.remove(file)
-    os.remove(IRIS_log)
 
     if 'Firsttime' in kwargs:
         return feedback, Logs
@@ -67,7 +66,7 @@ def CreateLog(st,feedback):
 
 def OpenAlarms(Log,key):
     FolderName = "IRIS"
-    DriveID = '1fGmcSlal8pZ97s6TB-asnfZF4RyGoYvp'
+    DriveID = '1BcCQCnQ8No47ZB0oixKW9m4Ye2pU9eL_'
 
     csv_file =  CreateOpenAlarmsFile(Log)
 
@@ -80,7 +79,6 @@ def OpenAlarms(Log,key):
     feedback = UploadFile(file, FolderName, DriveID,key , FileName = open_alarms_file_name['open_alarms'])
     os.remove(file)
     os.remove(csv_file)
-    os.remove(Log)
 
     return feedback
 
@@ -107,6 +105,25 @@ def SetDates():
     }
 
     Save(change, json_path)
+
+def RemoveOldFiles(folder_path):
+    file_name_json='dates.json'
+
+    files = Load(file_name_json)
+    os.chdir(os.path.join(os.getcwd(),"data"))
+    if os.path.exists(file_name_json):
+        if files['old_week'] != files['week']:
+
+            key = files['old_week']
+            path = os.path.join(folder_path,key)
+            if os.path.exists(path):
+                os.remove(path)
+        if files['old_month'] != files['month']:
+            key = files['old_month']
+            path = os.path.join(folder_path,key)
+            if os.path.exists(path):
+                 os.remove(path)
+    os.chdir(os.path.dirname(os.getcwd()))
 
 def main():
     paths_dic = Load("source_paths.json")
@@ -160,8 +177,12 @@ def main():
         log_feedback = "The files: " + ", ".join(all_files) + " have been uploaded."
     CreateLog(start_time,log_feedback)
 
+    RemoveOldFiles(folder_path = paths_dic["week_month_log_folder"])
+
     SetDates()
 
+    os.remove(Logbook)
+    os.remove(ActueelAlarms)
     
 if __name__ == '__main__':
     print("Starting")

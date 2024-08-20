@@ -106,6 +106,25 @@ def SetDates():
 
     Save(change, json_path)
 
+def RemoveOldFiles(folder_path):
+    file_name_json='dates.json'
+
+    files = Load(file_name_json)
+    os.chdir(os.path.join(os.getcwd(),"data"))
+    if os.path.exists(file_name_json):
+        if files['old_week'] != files['week']:
+
+            key = files['old_week']
+            path = os.path.join(folder_path,key)
+            if os.path.exists(path):
+                os.remove(path)
+        if files['old_month'] != files['month']:
+            key = files['old_month']
+            path = os.path.join(folder_path,key)
+            if os.path.exists(path):
+                 os.remove(path)
+    os.chdir(os.path.dirname(os.getcwd()))
+
 def main():
     paths_dic = Load("source_paths.json")
     start_time = time()
@@ -158,8 +177,12 @@ def main():
         log_feedback = "The files: " + ", ".join(all_files) + " have been uploaded."
     CreateLog(start_time,log_feedback)
 
+    RemoveOldFiles(folder_path = paths_dic["week_month_log_folder"])
+
     SetDates()
 
+    os.remove(Logbook)
+    os.remove(ActueelAlarms)
     
 if __name__ == '__main__':
     print("Starting")
