@@ -161,6 +161,7 @@ def main():
         print(Feedback)
     print("")
     
+    '''
     if os.path.exists(ActueelAlarms):
         Feedback = OpenAlarms(ActueelAlarms, 'open_alarms')
         openalarms = "open alarms log"
@@ -168,7 +169,8 @@ def main():
         log_feedback = "The Open Alarms path does not exist."
         print(Feedback)
     print("")
-    
+    '''
+
     all_files = list(filter(None,[day,week,month, openalarms]))
 
     if len(all_files) == 0:
@@ -182,7 +184,7 @@ def main():
     SetDates()
 
     os.remove(Logbook)
-    os.remove(ActueelAlarms)
+    #os.remove(ActueelAlarms)
     
 if __name__ == '__main__':
     print("Starting")

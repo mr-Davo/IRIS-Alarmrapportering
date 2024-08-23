@@ -31,7 +31,29 @@ def OpenAlarms(Log,key):
 
     return feedback
 
+
+def CreateLog(st,feedback):
+    et = time()
+    duration_seconds = (et - st)
+    minutes = int(duration_seconds // 60)
+    seconds = int(duration_seconds % 60)
+    print(f"{minutes} minutes and {seconds} seconds")
+    
+    #Set working directory to data folder
+    os.chdir(os.path.join(os.getcwd(),"data"))
+
+    if os.path.exists("Log.txt"):
+        f = open("Log.txt","a")
+    else:
+        f = open("Log.txt","x")
+        f.writelines("Date                           Runtime (in s)                  Result\n")
+    et = time()    
+    f.writelines("{}     {} minutes and {} seconds         {}\n".format(datetime.now(),minutes,seconds,feedback))
+    f.close()
+    os.chdir(os.path.dirname(os.getcwd()))
+
 def main():
+    st = time()
     paths_dic = Load("source_paths.json")
     start_time = time()
     ActueelAlarms = paths_dic["open_alarms_log"]
@@ -42,7 +64,9 @@ def main():
         Feedback = OpenAlarms(ActueelAlarms, 'open_alarms')
     print("")
     
+    CreateLog(st,Feedback)
     os.remove(ActueelAlarms)
+
     
 if __name__ == '__main__':
     print("Starting")
