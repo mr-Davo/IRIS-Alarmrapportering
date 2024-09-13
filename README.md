@@ -8,6 +8,7 @@ Dit Python-project leest dagelijks het IRIS logboek in CSV-formaat, genereert ee
 - [Installatie](#installatie)
 - [Mappenstructuur](#Mappenstructuur)
 - [Gebruik](#gebruik)
+- [Code](#Code)
 - [Licentie](#licentie)
 
 ## Functies
